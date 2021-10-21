@@ -1,0 +1,40 @@
+1. How many albums does the artist Led Zeppelin have? 
+
+SELECT COUNT(DISTINCT ALBUMID) as TOTAL
+FROM ALBUMS
+WHERE ARTISTID = 22
+
+Answer: 14
+
+2. Create a list of album titles and the unit prices for the artist "Audioslave". How many records are returned?
+Only 25 records will be shown in the output so please look at the bottom of the output to see how many records were retrieved.
+
+SELECT  ALBUMS.TITLE, TRACKS.UNITPRICE
+FROM ALBUMS INNER JOIN TRACKS ON ALBUMS.ALBUMID = TRACKS.ALBUMID
+WHERE ARTISTID = 8
+
+Answer: 40
+
+3. Find the first and last name of any customer who does not have an invoice. 
+Are there any customers returned from the query?  
+
+SELECT *
+FROM CUSTOMERS, INVOICES
+WHERE INVOICES.INVOICEID = Null
+
+Answer: No
+
+Find the total price for each album. What is the total price for the album “Big Ones”?
+SELECT SUM(UNITPRICE) as TOTAL_PRICE
+FROM TRACKS
+WHERE TRACKS.ALBUMID = 5
+
+Answer: 14.85
+
+4.How many records are created when you apply a Cartesian join to the invoice and invoice items table?
+
+SELECT INVOICES.INVOICEID
+FROM INVOICES
+CROSS JOIN INVOICE_ITEMS
+
+Answer:922880
